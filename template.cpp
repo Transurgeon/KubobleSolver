@@ -1,27 +1,8 @@
+#include "template.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
 using namespace std;
-
-struct point {
-    int row;
-    int col;
-    string color;
-};
-
-struct direction {
-    int d_row;
-    int d_col;
-};
-
-struct state {
-    vector<vector<string> > grid;
-    struct point green;
-    struct point orange;
-    struct point green_end;
-    struct point orange_end;
-    int iterations;
-};
 
 void updateGrid(state &s) {
     for (int i = 0; i < 3; i++)
@@ -54,54 +35,30 @@ void printGrid(vector<vector<string> > grid)
     }
 }
 
-vector<direction> generateDirections() {
+vector<direction> generateDirections(state s) {
 
     // Define the directions that the objects can move in
     vector<direction> directions;
-    direction left = {0, -1}; direction right = {0, 1};
-    direction up = {-1, 0}; direction down = {1, 0};
+    direction left = {0, -1, "L"}; direction right = {0, 1, "R"};
+    direction up = {-1, 0, "U"}; direction down = {1, 0, "D"};
     directions.push_back(up); directions.push_back(down);
     directions.push_back(left); directions.push_back(right);
     return directions;
-}
-
-state init_state() {
-    vector<vector<string> > grid(3, vector<string>(3, "||"));
-    // Create a new state
-    state s = {
-        grid,
-        {0, 0, "G"},
-        {0, 1, "O"}, 
-        {2, 1, "g"}, 
-        {2, 0, "o"}, 
-        0
-        };
-
-    // Update the grid
-    updateGrid(s);
-
-    // Print the grid
-    printGrid(s.grid);
-    
-    return s;
 }
 
 point movePoint(vector<vector<string> > grid, point p, direction d) {
     // move p in direction d
     int new_x = p.row + d.d_row;
     int new_y = p.col + d.d_col;
-    if (new_x < 2 & new_x >= 0 & new_y < 2 & new_y >= 0 & grid[new_x][new_y] == "||") {
+    if (new_x <= 2 && new_x >= 0 && new_y <= 2 && new_y >= 0 && (grid[new_x][new_y] != "G" || grid[new_x][new_y] != "O")) {
         
-        grid[p.row][p.col] = "||";
-        while (new_x < 2 & new_x >= 0 & new_y < 2 & new_y >= 0 & grid[new_x][new_y] == "||") {
+        while (new_x <= 2 && new_x >= 0 && new_y <= 2 && new_y >= 0 && (grid[new_x][new_y] != "G" || grid[new_x][new_y] != "O")) {
             p.row += d.d_row;
             p.col += d.d_col;
             new_x = p.row;
             new_y = p.col;
         }
         point new_p = {new_x, new_y, p.color};
-        
-        grid[new_p.row][new_p.col] = p.color;
         return new_p;
     }
     else {
@@ -109,26 +66,30 @@ point movePoint(vector<vector<string> > grid, point p, direction d) {
     }
 }
 
-stack<point> getValid_Moves(vector<vector<string> > grid, point p) {
-    vector<direction> directions = generateDirections();
-    stack<point> valid_moves;
+stack<state> getValid_Moves(state s) {
+    vector<direction> directions = generateDirections(s);
+    point p = s.orange;
+    vector < vector <string> > &grid = s.grid;
+    stack<state> valid_moves;
     for (int i = 0; i < directions.size(); i++) {
         point new_p = movePoint(grid, p, directions[i]);
         if (new_p.row != p.row || new_p.col != p.col) {
-            valid_moves.push(new_p);
+            turn t = {p, directions[i]};
+            s.turns.push_back(t);
+            vector < vector <string> > new_grid = grid;
+            new_grid[p.row][p.col] = "||";
+            new_grid[new_p.row][new_p.col] = p.color;
+            state new_s = {
+            new_grid,
+            s.green,
+            new_p,
+            s.green_end,
+            s.orange_end,
+            s.turns,
+            s.iterations + 1
+            };
+            valid_moves.push(new_s);
         }
     }
     return valid_moves;
-}
-
-void depthSearch(state s) {
-    stack<state> states;
-    states.push(s);
-    
-}
-
-int main() {
-    
-    state start = init_state();
-    return 0;
 }
