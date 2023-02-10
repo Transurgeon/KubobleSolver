@@ -1,5 +1,5 @@
 #include "parser.h"
-#include "template.h"
+#include "algorithms.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -22,23 +22,17 @@ state init_state() {
     // Update the grid
     updateGrid(s);
 
-    stack<state> tests = getValid_Moves(s);
-    while (!tests.empty()) {
-        state b = tests.top();
-        printGrid(b.grid);
-        std::cout << "------------------" << "\n";
-        tests.pop();
-        vector<turn> t = b.turns;
-        for (int i = 0; i < t.size(); i++) {
-            std::cout << t[i].p.color << " " << t[i].d.direc << "\n";
-        }
-    }
-
     return s;
 }
 
 int main() {
     
     state start = init_state();
+    state end = depthSearch(start, 0);
+    printGrid(end.grid);
+    vector<turn> t = end.turns;
+    for (int i = 0; i < t.size(); i++) {
+        std::cout << t[i].p.color << " " << t[i].d.direc << "\n";
+    }
     return 0;
 }
