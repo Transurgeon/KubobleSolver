@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <queue>
 using namespace std;
 
 void updateGrid(state &s) {
@@ -47,42 +48,32 @@ vector<direction> generateDirections(state s) {
 }
 
 point movePoint(vector<vector<string> > grid, point p, direction d) {
-    // move p in direction d
-    int new_x = p.row + d.d_row;
-    int new_y = p.col + d.d_col;
-    if (new_x <= 2 && new_x >= 0 && new_y <= 2 && new_y >= 0 && grid[new_x][new_y] != "G" && grid[new_x][new_y] != "O") {
-        
-        while (new_x <= 2 && new_x >= 0 && new_y <= 2 && new_y >= 0 && grid[new_x][new_y] != "G" && grid[new_x][new_y] != "O") {
-            p.row += d.d_row;
-            p.col += d.d_col;
-            new_x = p.row;
-            new_y = p.col;
+    // Move the point in the direction d until it has reached
+    // the edge of the grid or another object
+    point &new_p = p;
+    while (true) {
+        new_p.row += d.d_row;
+        new_p.col += d.d_col;
+        if (new_p.row < 0 || new_p.row > 2 || new_p.col < 0 || new_p.col > 2) {
+            new_p.row -= d.d_row;
+            new_p.col -= d.d_col;
+            break;
         }
-        if (new_x > 2) {
-            new_x = 2;
+        if (grid[new_p.row][new_p.col] != "||" && grid[new_p.row][new_p.col] != "g" 
+        && grid[new_p.row][new_p.col] != "o") {
+            new_p.row -= d.d_row;
+            new_p.col -= d.d_col;
+            break;
         }
-        else if (new_x < 0) {
-            new_x = 0;
-        }
-        if (new_y > 2) {
-            new_y = 2;
-        }
-        else if (new_y < 0) {
-            new_y = 0;
-        }
-        point new_p = {new_x, new_y, p.color};
-        return new_p;
     }
-    else {
-        return p;
-    }
+    return new_p;
 }
 
-stack<state> getValid_Moves(state s) {
+queue<state> getValid_Moves(state s) {
     vector<direction> directions = generateDirections(s);
     vector < vector <string> > &grid = s.grid;
     vector < turn > &turns = s.turns;
-    stack<state> valid_moves;
+    queue<state> valid_moves;
     // this for loop is my implementation of macros :_(
     for (int c = 0; c < 2; c++) {
         point p;
@@ -109,8 +100,8 @@ stack<state> getValid_Moves(state s) {
                 if (c == 0) {
                     new_s = (struct state){
                     new_grid,
-                    s.green,
                     new_p,
+                    s.orange,
                     s.green_end,
                     s.orange_end,
                     new_turns,
@@ -120,15 +111,15 @@ stack<state> getValid_Moves(state s) {
                 else {
                     new_s = (struct state){
                     new_grid,
+                    s.green,
                     new_p,
-                    s.orange,
                     s.green_end,
                     s.orange_end,
                     new_turns,
                     s.iterations + 1
                     };
                 }
-                // add new state to stack
+                // add new state to queue
                 valid_moves.push(new_s);
             }
         }

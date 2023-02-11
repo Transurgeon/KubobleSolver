@@ -18,7 +18,7 @@ state init_state() {
         moves,
         0
         };
-
+    
     // Update the grid
     updateGrid(s);
 
@@ -28,11 +28,6 @@ state init_state() {
 int main() {
     
     state start = init_state();
-    state end = depthSearch(start, 0);
-    printGrid(end.grid);
-    vector<turn> t = end.turns;
-    for (int i = 0; i < t.size(); i++) {
-        std::cout << t[i].p.color << " " << t[i].d.direc << "\n";
-    }
+    depthSearch(start, 5);
     return 0;
 }
