@@ -6,9 +6,9 @@
 using namespace std;
 
 void updateGrid(state &s) {
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < s.grid.size(); i++)
     {
-        for (int j = 0; j < 3; j++)
+        for (int j = 0; j < s.grid[0].size(); j++)
         {
             if (s.green.row == i & s.green.col == j)
                 s.grid[i][j] = s.green.color;
@@ -26,9 +26,9 @@ void updateGrid(state &s) {
 
 void printGrid(vector<vector<string> > grid)
 {
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < grid.size(); i++)
     {
-        for (int j = 0; j < 3; j++)
+        for (int j = 0; j < grid[0].size(); j++)
         {   
             std::cout << grid[i][j] << "\t";
         }
@@ -54,7 +54,8 @@ point movePoint(vector<vector<string> > grid, point p, direction d) {
     while (true) {
         new_p.row += d.d_row;
         new_p.col += d.d_col;
-        if (new_p.row < 0 || new_p.row > 2 || new_p.col < 0 || new_p.col > 2) {
+        if (new_p.row < 0 || new_p.row > grid.size() - 1 || 
+        new_p.col < 0 || new_p.col > grid[0].size() - 1) {
             new_p.row -= d.d_row;
             new_p.col -= d.d_col;
             break;
