@@ -34,3 +34,25 @@ void depthSearch(state start, int optimal) {
             }
     }
 }
+
+void solveLevels() {
+    ifstream file("levels.csv");
+    while (file.good()) {
+        vector<string> inputs = getNextLineAndSplit(file);
+        vector < vector <string> > grid;
+        int optimal;
+        for (int i = 0; i < inputs.size(); i++) {
+            if (i == 4) {
+                grid = parseGrid(inputs[i]);
+            }
+            else if (i == 3) {
+                optimal = stoi(inputs[i]);
+            }
+            else if (i == 2) {
+                std::cout << "Currently at : " << inputs[i] << "\n";
+            }
+        }
+        state start = generate_init_state(grid);
+        depthSearch(start, optimal);
+    }
+}

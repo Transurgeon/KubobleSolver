@@ -40,3 +40,5 @@ vector<direction> generateDirections(state s);
 point movePoint(vector<vector<string> > grid, point p, direction d);
 
 queue<state> getValid_Moves(state s);
+
+state generate_init_state(vector<vector<string> > grid);
