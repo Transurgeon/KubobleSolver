@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <queue>
 using namespace std;
 
 struct point {
@@ -38,4 +39,4 @@ vector<direction> generateDirections(state s);
 
 point movePoint(vector<vector<string> > grid, point p, direction d);
 
-stack<state> getValid_Moves(state s);
+queue<state> getValid_Moves(state s);

@@ -4,4 +4,4 @@
 #include <vector>
 using namespace std;
 
-state depthSearch(state start, int optimal);
+void depthSearch(state start, int optimal);
