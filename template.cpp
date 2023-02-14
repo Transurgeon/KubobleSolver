@@ -127,3 +127,37 @@ queue<state> getValid_Moves(state s) {
     }
     return valid_moves;
 }
+
+state generate_init_state(vector<vector<string> > grid) {
+    // Find the green and orange objects
+    point green, orange, green_end, orange_end;
+    for (int i = 0; i < grid.size(); i++)
+    {
+        for (int j = 0; j < grid[0].size(); j++)
+        {
+            if (grid[i][j] == "G") {
+                green = (struct point){i, j, "G"};
+            }
+            else if (grid[i][j] == "O") {
+                orange = (struct point){i, j, "O"};
+            }
+            else if (grid[i][j] == "g") {
+                green_end = (struct point){i, j, "g"};
+            }
+            else if (grid[i][j] == "o") {
+                orange_end = (struct point){i, j, "o"};
+            }
+        }
+    }
+    // Create the initial state
+    state init_state = (struct state){
+        grid,
+        green,
+        orange,
+        green_end,
+        orange_end,
+        {},
+        0
+    };
+    return init_state;
+}
