@@ -1,0 +1,670 @@
+Currently at : Level 1
+A	B	.	
+.	.	.	
+b	a	.	
+Found solution!
+.	.	.	
+.	.	.	
+B	A	.	
+A D
+A R
+B D
+B L
+A L
+Currently at : Level 2
+A	B	a	
+.	X	.	
+.	b	.	
+Found solution!
+.	.	A	
+.	X	.	
+.	B	.	
+A D
+A R
+B L
+B D
+B R
+A U
+Currently at : Level 3
+A	B	.	
+a	b	.	
+X	.	.	
+Found solution!
+.	.	.	
+A	B	.	
+X	.	.	
+B D
+A R
+B R
+B U
+A L
+A D
+B L
+Currently at : Level 4
+A	B	.	
+.	a	b	
+X	.	.	
+Found solution!
+.	.	.	
+.	A	B	
+X	.	.	
+B D
+A R
+B R
+B U
+A L
+A D
+A R
+Currently at : Level 5
+X	.	B	A	
+a	.	.	.	
+X	b	.	.	
+Found solution!
+X	.	.	.	
+A	.	.	.	
+X	B	.	.	
+B D
+A L
+B L
+A D
+A L
+Currently at : Level 6
+X	a	X	.	
+X	b	.	.	
+.	.	B	A	
+Found solution!
+X	A	X	.	
+X	B	.	.	
+.	.	.	.	
+B U
+A L
+B D
+A R
+A U
+B U
+B L
+Currently at : Level 7
+X	X	B	A	
+a	.	b	.	
+X	.	.	.	
+Found solution!
+X	X	.	.	
+A	.	B	.	
+X	.	.	.	
+A D
+B R
+B D
+A L
+A U
+B L
+A L
+Currently at : Level 8
+a	X	B	A	
+.	.	b	.	
+.	.	.	.	
+Found solution!
+A	X	.	.	
+.	.	B	.	
+.	.	.	.	
+B D
+A L
+B U
+A R
+A D
+A L
+A U
+Currently at : Level 9
+X	.	B	A	
+X	.	b	X	
+a	.	.	.	
+Found solution!
+X	.	.	.	
+X	.	B	X	
+A	.	.	.	
+B L
+B D
+A L
+B U
+B R
+A D
+A L
+Currently at : Level 10
+X	.	X	b	
+.	a	.	.	
+X	.	B	A	
+Found solution!
+X	.	X	B	
+.	A	.	.	
+X	.	.	.	
+B U
+A L
+A U
+B D
+B L
+A D
+B R
+B U
+Currently at : Level 11
+X	.	.	X	
+.	a	b	.	
+X	.	B	A	
+Found solution!
+X	.	.	X	
+.	A	B	.	
+X	.	.	.	
+B L
+A L
+A U
+A L
+A D
+B R
+B U
+B L
+Currently at : Level 12
+A	a	.	.	
+X	.	.	.	
+.	.	b	.	
+Found solution!
+.	A	.	.	
+X	.	.	.	
+.	.	B	.	
+A R
+B R
+A D
+A L
+B D
+A R
+A U
+Currently at : Level 13
+X	.	a	A	
+X	X	.	.	
+.	b	.	.	
+Found solution!
+X	.	A	.	
+X	X	.	.	
+.	B	.	.	
+A L
+B R
+A R
+B D
+B L
+A D
+B R
+A U
+Currently at : Level 14
+X	.	.	X	
+.	b	a	.	
+.	.	B	A	
+Found solution!
+X	.	.	X	
+.	B	A	.	
+.	.	.	.	
+A U
+A L
+B R
+B U
+A R
+B D
+B L
+B U
+B R
+Currently at : Level 15
+A	a	.	.	
+X	.	X	.	
+.	.	b	.	
+Found solution!
+.	A	.	.	
+X	.	X	.	
+.	.	B	.	
+A R
+B L
+A L
+A D
+B R
+B D
+B L
+A U
+Currently at : Level 16
+X	b	X	.	
+.	.	a	.	
+.	.	B	A	
+Found solution!
+X	B	X	.	
+.	.	A	.	
+.	.	.	.	
+B U
+A L
+A U
+B L
+A D
+A R
+B D
+A L
+A U
+B U
+Currently at : Level 17
+X	.	b	A	
+.	a	.	X	
+.	.	.	.	
+Found solution!
+X	.	B	.	
+.	A	.	X	
+.	.	.	.	
+A L
+A D
+B L
+B D
+A L
+A U
+B R
+A R
+B U
+Currently at : Level 18
+.	X	B	A	
+.	.	.	a	
+b	X	.	.	
+.	.	.	.	
+Found solution!
+.	X	.	.	
+.	.	.	A	
+B	X	.	.	
+.	.	.	.	
+A D
+B R
+A U
+A L
+B D
+B L
+B U
+A R
+Currently at : Level 19
+X	b	X	.	
+.	.	.	.	
+.	X	.	.	
+.	.	a	A	
+Found solution!
+X	B	X	.	
+.	.	.	.	
+.	X	.	.	
+.	.	A	.	
+A L
+B R
+A R
+A U
+B L
+B U
+B R
+A D
+B U
+Currently at : Level 20
+X	X	.	X	
+.	.	a	.	
+.	.	.	.	
+.	b	B	A	
+Found solution!
+X	X	.	X	
+.	.	A	.	
+.	.	.	.	
+.	B	.	.	
+A U
+A L
+A D
+B L
+A U
+A R
+B U
+A L
+B D
+Currently at : Level 21
+X	.	b	A	
+.	.	.	X	
+.	.	a	.	
+.	X	.	.	
+Found solution!
+X	.	B	.	
+.	.	.	X	
+.	.	A	.	
+.	X	.	.	
+B L
+A L
+A D
+B D
+B L
+B U
+B R
+A U
+B U
+Currently at : Level 22
+X	.	X	.	
+a	.	.	.	
+X	b	.	.	
+.	.	B	A	
+Found solution!
+X	.	X	.	
+A	.	.	.	
+X	B	.	.	
+.	.	.	.	
+B U
+B R
+B D
+B L
+A U
+B R
+A D
+A L
+B L
+Currently at : Level 23
+X	.	X	.	
+.	.	.	.	
+.	.	b	.	
+a	X	B	A	
+Found solution!
+X	.	X	.	
+.	.	.	.	
+.	.	B	.	
+A	X	.	.	
+B U
+A L
+B R
+A U
+B D
+B L
+B U
+A L
+A D
+Currently at : Level 24
+X	b	X	.	
+.	.	a	.	
+.	.	.	.	
+.	.	B	A	
+Found solution!
+X	B	X	.	
+.	.	A	.	
+.	.	.	.	
+.	.	.	.	
+B U
+A L
+A U
+B L
+A D
+A R
+B D
+A L
+A U
+B U
+Currently at : Level 25
+X	.	a	A	
+.	X	.	.	
+.	b	.	.	
+.	.	.	.	
+Found solution!
+X	.	A	.	
+.	X	.	.	
+.	B	.	.	
+.	.	.	.	
+A L
+B R
+A R
+B D
+B L
+A D
+B R
+A U
+B U
+Currently at : Level 26
+.	X	X	.	
+.	.	b	.	
+.	a	.	.	
+.	X	B	A	
+Found solution!
+.	X	X	.	
+.	.	B	.	
+.	A	.	.	
+.	X	.	.	
+B U
+A L
+B L
+A U
+A L
+A D
+B R
+A U
+B L
+A D
+Currently at : Level 27
+.	X	B	A	
+.	.	.	.	
+a	X	.	X	
+.	.	b	.	
+Found solution!
+.	X	.	.	
+.	.	.	.	
+A	X	.	X	
+.	.	B	.	
+A D
+A L
+A D
+B R
+B D
+B L
+A U
+B R
+B U
+B L
+B D
+Currently at : Level 28
+X	X	B	A	
+.	.	a	.	
+b	.	.	X	
+.	.	.	.	
+Found solution!
+X	X	.	.	
+.	.	A	.	
+B	.	.	X	
+.	.	.	.	
+A D
+A L
+B D
+B L
+B U
+A R
+A U
+A L
+B R
+A D
+B L
+Currently at : Level 29
+.	X	X	.	
+.	X	.	a	
+.	b	.	.	
+.	.	B	A	
+Found solution!
+.	X	X	.	
+.	X	.	A	
+.	B	.	.	
+.	.	.	.	
+B U
+A L
+B D
+B L
+B U
+A R
+B D
+A L
+A U
+A R
+B U
+Currently at : Level 30
+.	X	B	A	
+.	.	b	.	
+.	.	.	X	
+.	a	.	.	
+Found solution!
+.	X	.	.	
+.	.	B	.	
+.	.	.	X	
+.	A	.	.	
+A D
+A L
+A D
+B D
+A R
+A U
+B U
+B R
+B D
+B L
+A DCurrently at : Level 31
+A	B	b	.	
+.	X	.	.	
+a	.	.	.	
+.	.	.	.	
+Found solution!
+.	.	B	.	
+.	X	.	.	
+A	.	.	.	
+.	.	.	.	
+A D
+A R
+A U
+B R
+A D
+A L
+B D
+A R
+A U
+A L
+B U
+Currently at : Level 32
+a	X	B	A	
+.	.	.	.	
+.	.	.	.	
+b	X	.	.	
+Found solution!
+A	X	.	.	
+.	.	.	.	
+.	.	.	.	
+B	X	.	.	
+A D
+A L
+A U
+A R
+B D
+B R
+B U
+A L
+A U
+B L
+B D
+Currently at : Level 33
+.	X	X	.	
+.	a	.	b	
+.	X	.	.	
+.	.	B	A	
+Found solution!
+.	X	X	.	
+.	A	.	B	
+.	X	.	.	
+.	.	.	.	
+A U
+B R
+A D
+A L
+A U
+A R
+B U
+A L
+B L
+B U
+A R
+B R
+Currently at : Level 34
+X	b	X	.	
+.	.	.	.	
+.	.	a	.	
+A	B	.	X	
+Found solution!
+X	B	X	.	
+.	.	.	.	
+.	.	A	.	
+.	.	.	X	
+B R
+B U
+B L
+A U
+B R
+B D
+B L
+A U
+A R
+A D
+A L
+B U
+Currently at : Level 35
+X	X	B	A	
+.	.	.	.	
+.	a	.	.	
+b	X	.	.	
+Found solution!
+X	X	.	.	
+.	.	.	.	
+.	A	.	.	
+B	X	.	.	
+A D
+A L
+A U
+A R
+B D
+B R
+B U
+B L
+B U
+A L
+A D
+B D
+Currently at : Level 36
+X	.	X	.	
+.	a	.	.	
+.	b	.	.	
+X	.	B	A	
+Found solution!
+X	.	X	.	
+.	A	.	.	
+.	B	.	.	
+X	.	.	.	
+B U
+B R
+A U
+B L
+B D
+B R
+B U
+A L
+A U
+A R
+B D
+B L
+B U
+Currently at : Level 37
+X	X	B	A	
+.	a	.	.	
+.	.	b	.	
+.	.	.	X	
+Found solution!
+X	X	.	.	
+.	A	.	.	
+.	.	B	.	
+.	.	.	X	
+B D
+B L
+B U
+B R
+B D
+B L
+A D
+A L
+B U
+B R
+B D
+B L
+A U

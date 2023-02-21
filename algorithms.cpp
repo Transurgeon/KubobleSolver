@@ -35,29 +35,28 @@ void depthSearch(state start, int optimal) {
     }
 }
 
-void solveLevels() {
+void solveLevels(int level, bool all = true) {
     ifstream file("levels.csv");
     int count = 0;
     while (file.good()) {
         vector<string> inputs = getNextLineAndSplit(file);
-        count += 1;
-        if (count == 39) {
-            break;
-        }
         string gridString;
         int optimal;
-        for (int i = 0; i < inputs.size(); i++) {
-            if (i == 4) {
-                gridString = inputs[i];
+        count += 1;
+        if (all || count == level) {
+            for (int i = 0; i < inputs.size(); i++) {
+                if (i == 4) {
+                    gridString = inputs[i];
+                }
+                else if (i == 3) {
+                    optimal = stoi(inputs[i]);
+                }
+                else if (i == 2) {
+                    std::cout << "Currently at : " << inputs[i] << "\n";
+                }
             }
-            else if (i == 3) {
-                optimal = stoi(inputs[i]);
-            }
-            else if (i == 2) {
-                std::cout << "Currently at : " << inputs[i] << "\n";
-            }
+            state start = generate_init_state(gridString);
+            depthSearch(start, optimal);
         }
-        state start = generate_init_state(gridString);
-        depthSearch(start, optimal);
     }
 }
