@@ -6,6 +6,6 @@ using namespace std;
 
 int main() {
     
-    solveLevels();
+    solveLevels(36, false);
     return 0;
 }

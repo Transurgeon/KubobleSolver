@@ -7,4 +7,4 @@ using namespace std;
 
 void depthSearch(state start, int optimal);
 
-void solveLevels();
+void solveLevels(int level, bool all);

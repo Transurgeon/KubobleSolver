@@ -172,7 +172,7 @@ state generate_init_state(string gridString) {
                 else if (row[j][k] == 'b') {
                     orange_end = (struct point){i, j, "b"};
                 }
-                if (k == 0) {
+                if (!(k == 0 && row[j].size() == 2)) {
                     string s;
                     s.push_back(row[j][k]);
                     new_row.push_back(s);
