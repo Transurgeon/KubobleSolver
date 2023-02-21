@@ -50,6 +50,9 @@ vector<direction> generateDirections(state s) {
 
 bool isMoveRepeat(state s, point p, direction d) {
     // Check if the move is a repeat
+    if (s.turns.size() == 0) {
+        return false;
+    }
     turn lastMove = s.turns.back();
     if (p.color == lastMove.p.color) {
         if ((d.direc == "L" && lastMove.d.direc == "R")
@@ -102,7 +105,7 @@ queue<state> getValid_Moves(state s) {
         for (int i = 0; i < directions.size(); i++) {
             point new_p = movePoint(grid, p, directions[i]);
 
-            if (new_p.row != p.row || new_p.col != p.col
+            if ((new_p.row != p.row || new_p.col != p.col)
                 && !isMoveRepeat(s, new_p, directions[i])) {
                 // update turns
                 turn t = {p, directions[i]};
