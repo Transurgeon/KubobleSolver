@@ -645,3 +645,26 @@ A R
 B D
 B L
 B U
+Currently at : Level 37
+X	X	B	A	
+.	a	.	.	
+.	.	b	.	
+.	.	.	X	
+Found solution!
+X	X	.	.	
+.	A	.	.	
+.	.	B	.	
+.	.	.	X	
+B D
+B L
+B U
+B R
+B D
+B L
+A D
+A L
+B U
+B R
+B D
+B L
+A U
