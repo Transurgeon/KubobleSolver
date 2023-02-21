@@ -8,5 +8,5 @@ using namespace std;
 
 vector<string> getNextLineAndSplit(istream& str);
 
-vector< vector <string> > parseGrid(string gridString);
+vector < string > splitString(string s, char delim);
 

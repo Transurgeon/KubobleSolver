@@ -1,3 +1,4 @@
+#include "parser.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -37,8 +38,10 @@ void printGrid(vector<vector<string> > grid);
 
 vector<direction> generateDirections(state s);
 
+bool isMoveRepeat(state s, point p, direction d);
+
 point movePoint(vector<vector<string> > grid, point p, direction d);
 
 queue<state> getValid_Moves(state s);
 
-state generate_init_state(vector<vector<string> > grid);
+state generate_init_state(string gridString);

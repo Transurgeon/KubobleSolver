@@ -3,6 +3,7 @@
 #include <fstream>
 #include <vector>
 #include <queue>
+#include <string>
 using namespace std;
 
 void updateGrid(state &s) {
@@ -19,7 +20,7 @@ void updateGrid(state &s) {
             else if (s.orange_end.row == i & s.orange_end.col == j)
                 s.grid[i][j] = s.orange_end.color;
             else
-                s.grid[i][j] = "||";
+                s.grid[i][j] = ".";
         }
     }
 }
@@ -47,6 +48,23 @@ vector<direction> generateDirections(state s) {
     return directions;
 }
 
+bool isMoveRepeat(state s, point p, direction d) {
+    // Check if the move is a repeat
+    if (s.turns.size() == 0) {
+        return false;
+    }
+    turn lastMove = s.turns.back();
+    if (p.color == lastMove.p.color) {
+        if ((d.direc == "L" && lastMove.d.direc == "R")
+            || (d.direc == "R" && lastMove.d.direc == "L")
+            || (d.direc == "U" && lastMove.d.direc == "D")
+            || (d.direc == "D" && lastMove.d.direc == "U")) {
+            return true;
+        }
+    }
+    return false;
+}
+
 point movePoint(vector<vector<string> > grid, point p, direction d) {
     // Move the point in the direction d until it has reached
     // the edge of the grid or another object
@@ -60,8 +78,8 @@ point movePoint(vector<vector<string> > grid, point p, direction d) {
             new_p.col -= d.d_col;
             break;
         }
-        if (grid[new_p.row][new_p.col] != "||" && grid[new_p.row][new_p.col] != "g" 
-        && grid[new_p.row][new_p.col] != "o") {
+        if (grid[new_p.row][new_p.col] != "." && grid[new_p.row][new_p.col] != "a" 
+        && grid[new_p.row][new_p.col] != "b") {
             new_p.row -= d.d_row;
             new_p.col -= d.d_col;
             break;
@@ -87,14 +105,15 @@ queue<state> getValid_Moves(state s) {
         for (int i = 0; i < directions.size(); i++) {
             point new_p = movePoint(grid, p, directions[i]);
 
-            if (new_p.row != p.row || new_p.col != p.col) {
+            if ((new_p.row != p.row || new_p.col != p.col)
+                && !isMoveRepeat(s, new_p, directions[i])) {
                 // update turns
                 turn t = {p, directions[i]};
                 vector < turn > new_turns = turns;
                 new_turns.push_back(t);
                 // update grid
                 vector < vector <string> > new_grid = grid;
-                new_grid[p.row][p.col] = "||";
+                new_grid[p.row][p.col] = ".";
                 new_grid[new_p.row][new_p.col] = p.color;
                 // update state
                 state new_s;
@@ -128,27 +147,41 @@ queue<state> getValid_Moves(state s) {
     return valid_moves;
 }
 
-state generate_init_state(vector<vector<string> > grid) {
+state generate_init_state(string gridString) {
     // Find the green and orange objects
     point green, orange, green_end, orange_end;
-    for (int i = 0; i < grid.size(); i++)
+    vector<vector<string> > grid;
+    vector <string> rows = splitString(gridString, ';');
+    for (int i = 0; i < rows.size(); i++)
     {
-        for (int j = 0; j < grid[0].size(); j++)
+        vector <string> row = splitString(rows[i], ' ');
+        vector <string> new_row;
+        for (int j = 0; j < row.size(); j++)
         {
-            if (grid[i][j] == "G") {
-                green = (struct point){i, j, "G"};
-            }
-            else if (grid[i][j] == "O") {
-                orange = (struct point){i, j, "O"};
-            }
-            else if (grid[i][j] == "g") {
-                green_end = (struct point){i, j, "g"};
-            }
-            else if (grid[i][j] == "o") {
-                orange_end = (struct point){i, j, "o"};
+            for (int k = 0; k < row[j].size(); k++)
+            {
+                if (row[j][k] == 'A') {
+                    green = (struct point){i, j, "A"};
+                }
+                else if (row[j][k] == 'B') {
+                    orange = (struct point){i, j, "B"};
+                }
+                else if (row[j][k] == 'a') {
+                    green_end = (struct point){i, j, "a"};
+                }
+                else if (row[j][k] == 'b') {
+                    orange_end = (struct point){i, j, "b"};
+                }
+                if (k == 0) {
+                    string s;
+                    s.push_back(row[j][k]);
+                    new_row.push_back(s);
+                }
             }
         }
+        grid.push_back(new_row);
     }
+    printGrid(grid);
     // Create the initial state
     state init_state = (struct state){
         grid,

@@ -30,37 +30,12 @@ vector<string> getNextLineAndSplit(istream& str)
     return result;
 }
 
-vector < vector <string> > parseGrid(string gridString) {
-    vector < vector <string> > grid;
-    vector <string> row;
-    for (int i = 0; i < gridString.size(); i++) {
-        if (gridString[i] == '.') {
-            row.push_back("||");
-        }
-        else if (gridString[i] == 'X') {
-            row.push_back("X");
-        }
-        else if (gridString[i] == 'A') {
-            row.push_back("G");
-        }
-        else if (gridString[i] == 'B') {
-            row.push_back("O");
-        }
-        else if (gridString[i] == 'a') {
-            row.push_back("g");
-        }
-        else if (gridString[i] == 'b') {
-            row.push_back("o");
-        }
-        else if (gridString[i] == ';') {
-            grid.push_back(row);
-            row.clear();
-        }
-        else {
-            continue;
-        }
+vector < string > splitString(string s, char delim) {
+    vector < string > result;
+    stringstream ss(s);
+    string item;
+    while (getline(ss, item, delim)) {
+        result.push_back(item);
     }
-    grid.push_back(row);
-    return grid;
+    return result;
 }
-
